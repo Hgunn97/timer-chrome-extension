@@ -18,7 +18,7 @@ class TimesList extends React.Component{
         }
     }
     componentDidMount(){
-        axios.get('http://localhost:5000/timer')
+        axios.get('/timer')
             .then(res => {
                 this.setState({
                     times: res.data
