@@ -1,9 +1,9 @@
 {
   "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Application Timer",
   "version": "1.0.0",
     "manifest_version": 2,
-    "description": "Strong password generator",
+    "description": "Used to time how long you spend on an application",
     "icons": {
       "512": "logo512.png"
   },
