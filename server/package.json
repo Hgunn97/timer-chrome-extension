@@ -3,8 +3,15 @@
   "version": "1.0.0",
   "description": "backend for timer chrome extension",
   "main": "index.js",
+  "engines": {
+    "node": "12.x",
+    "npm": "6.14.4"
+  },
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "build": "webpack",
+    "start-server": "nodemon dist/main.js",
+    "watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Hannah Gunn",
@@ -16,5 +23,9 @@
     "express": "^4.17.1",
     "mongoose": "^5.10.9",
     "nodemon": "^2.0.5"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   }
 }
