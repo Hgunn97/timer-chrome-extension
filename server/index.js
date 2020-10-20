@@ -23,6 +23,10 @@ connection.once('open', () => {
     console.log('Connection to the database has been established!')
 })
 
+app.get('/', (req, res) => {
+    res.send('Hello from Express!')
+})
+
 app.use('/timer', timerRouter)
 
 app.listen(port, () => {
