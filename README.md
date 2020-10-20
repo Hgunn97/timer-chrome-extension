@@ -7,4 +7,5 @@ Basically just a timer so you can upload how much time you spend doing stuff to 
 🌟 -> New feature to the app  
 🐛 -> Bug fixes  
 ☝🏻 -> Updates needed (NPM packages etc)  
-📑 -> Documentation edits  
+📑 -> Documentation edits
+🐍 -> Deployment stuff
