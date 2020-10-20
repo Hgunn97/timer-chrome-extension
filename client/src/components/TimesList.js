@@ -18,7 +18,7 @@ class TimesList extends React.Component{
         }
     }
     componentDidMount(){
-        axios.get('/timer')
+        axios.get('https://timer-chrome-extension.herokuapp.com/timer')
             .then(res => {
                 this.setState({
                     times: res.data
