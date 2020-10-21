@@ -24,7 +24,7 @@ class Timer extends React.Component{
     }
     stopTimer(){
         clearInterval(this.timer)
-        console.log(this.state.time)
+        this.props.stopTime(this.state.time)
     }
     resetTimer(){
         clearInterval(this.timer)
@@ -35,7 +35,7 @@ class Timer extends React.Component{
         return(
             <div>
                 <p>This is where the timer will be</p>
-                <h3>Timer: {ms(this.state.time, {colonNotation: true, keepDecimalsOnWholeSeconds: true})}</h3>
+                <h3>Timer: {ms(this.state.time, {colonNotation: true, keepDecimalsOnWholeSeconds: true, compact: true})}</h3>
                 <button onClick={this.startTimer}>start</button>
                 <button onClick={this.stopTimer}>stop</button>
                 <button onClick={this.resetTimer}>reset</button>
