@@ -3,24 +3,17 @@ import {Form, Button} from 'react-bootstrap'
 import axios from 'axios'
 
 class SubmitForm extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            time: '',
             title: '',
             description: ''
         }
-        this.handleTimer = this.handleTimer.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
         this.onChangeTitle = this.onChangeTitle.bind(this)
         this.onChangeDescription = this.onChangeDescription.bind(this)
     }
-    handleTimer = (timeVal) => {
-        timeVal = timeVal.toString()
-        timeVal = timeVal.slice(0, -3);
-        timeVal = parseInt(timeVal)
-        this.setState({time: timeVal})
-    }
+
     onChangeTitle(e){
         this.setState({
             title: e.target.value
@@ -34,11 +27,17 @@ class SubmitForm extends React.Component{
     onSubmit(e){
         e.preventDefault();
 
+        let timeVal = this.props.time
+        timeVal = timeVal.toString()
+        timeVal = timeVal.slice(0, -3);
+        timeVal = parseInt(timeVal)
+
         const data = {
-            time: this.state.time,
+            time: timeVal,
             title: this.state.title,
             description: this.state.description
         }
+        console.log(data)
         axios.post('https://timer-chrome-extension.herokuapp.com/timer/add', data)
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
@@ -47,7 +46,7 @@ class SubmitForm extends React.Component{
     render(){
         return(
             <div>
-                {/* <Timer stopTime={this.handleTimer}/> */}
+                <p>{this.props.time===0 ? <i>Please stop the timer before submitting</i> : null}</p>
                 <Form onSubmit={this.onSubmit}>
                     <Form.Group>
                         <Form.Label>Title</Form.Label>
@@ -61,7 +60,6 @@ class SubmitForm extends React.Component{
                         Submit
                     </Button>
                 </Form>
-                <p>{this.state.time}</p>
             </div>
         )
     }

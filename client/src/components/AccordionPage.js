@@ -4,9 +4,8 @@ import SubmitForm from './SubmitForm'
 import TimesList from './TimesList'
 
 class AccordionPage extends React.Component{
-    constructor(){
-        super();
-        
+    constructor(props){
+        super(props)
     }
     render(){
         return(
@@ -14,11 +13,11 @@ class AccordionPage extends React.Component{
             <Card>
                 <Card.Header className="cardHeadItems">
                     <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                        Send data
+                    Send data
                     </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
-                    <Card.Body><SubmitForm /></Card.Body>
+                    <Card.Body><SubmitForm time={this.props.time}/></Card.Body>
                 </Accordion.Collapse>
             </Card>
             <Card>
