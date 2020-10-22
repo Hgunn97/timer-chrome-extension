@@ -1,6 +1,5 @@
 import React from 'react'
 import {Form, Button} from 'react-bootstrap'
-import Timer from './Timer'
 import axios from 'axios'
 
 class SubmitForm extends React.Component{
@@ -48,7 +47,7 @@ class SubmitForm extends React.Component{
     render(){
         return(
             <div>
-                <Timer stopTime={this.handleTimer}/>
+                {/* <Timer stopTime={this.handleTimer}/> */}
                 <Form onSubmit={this.onSubmit}>
                     <Form.Group>
                         <Form.Label>Title</Form.Label>

@@ -1,0 +1,14 @@
+.refreshIcon{
+    color: grey;
+    padding: .375rem .75rem;
+}
+.refreshIcon:hover{
+    cursor: pointer;
+    color: black;
+}
+.cardHeadItems{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+}

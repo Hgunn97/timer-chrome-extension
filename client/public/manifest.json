@@ -4,9 +4,6 @@
   "version": "1.0.0",
     "manifest_version": 2,
     "description": "Used to time how long you spend on an application",
-    "icons": {
-      "512": "logo512.png"
-  },
     "browser_action": {
         "default_icon": "logo512.png",
         "default_popup": "popup.html"

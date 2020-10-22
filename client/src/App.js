@@ -1,13 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import TimesList from './components/TimesList'
-import SubmitForm from './components/SubmitForm'
+import Timer from './components/Timer'
+import AccordionPage from './components/AccordionPage'
+
+import './App.css';
  
 function App() {
  return (
-    <div className="container">
-      <SubmitForm />
-      <TimesList />
+    <div className="container chromeBkg">
+      <Timer />
+      <AccordionPage />
     </div>
  );
 }
