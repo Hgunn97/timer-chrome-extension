@@ -1,10 +1,11 @@
 import React from 'react'
 import axios from 'axios'
+import {ArrowRepeat} from 'react-bootstrap-icons'
 
 class EachItem extends React.Component{
     constructor(props){
         super(props);
-        this.state= {
+        this.state = {
             hours: 0,
             minutes: 0,
             seconds: 0
@@ -19,17 +20,16 @@ class EachItem extends React.Component{
         let secs = Math.floor(formatTime - mins * 60)
 
         this.setState({
-            housr: hours,
+            hours: hours,
             minutes: mins,
             seconds: secs
         })
-
     }
 
     render(){
         return(
             <div>
-                <h3>Item</h3>
+                <h3>Item {this.props.number} </h3>
                 <p>
                     Time spent:
                     {this.state.hours>0 ? ` ${this.state.hours} hours` : null} 
@@ -45,7 +45,8 @@ class TimesList extends React.Component{
     constructor(){
         super()
         this.state = {
-            times: []
+            times: [],
+            itemNumber: 1
         }
     }
     componentDidMount(){
@@ -60,7 +61,7 @@ class TimesList extends React.Component{
 
     timesList(){
         return this.state.times.map(currentItem => {
-            return <EachItem item={currentItem} key={currentItem._id} />
+            return <EachItem number={this.state.itemNumber++} item={currentItem} key={currentItem._id} />
         })
     }
 
