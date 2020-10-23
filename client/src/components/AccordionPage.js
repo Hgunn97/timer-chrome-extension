@@ -4,9 +4,6 @@ import SubmitForm from './SubmitForm'
 import TimesList from './TimesList'
 
 class AccordionPage extends React.Component{
-    constructor(props){
-        super(props)
-    }
     render(){
         return(
             <Accordion style={{width: "100%"}}>

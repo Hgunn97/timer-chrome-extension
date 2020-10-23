@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {ArrowRepeat} from 'react-bootstrap-icons'
+import './TimesList.css'
 
 class EachItem extends React.Component{
     constructor(props){
@@ -13,8 +14,6 @@ class EachItem extends React.Component{
     }
     componentDidMount(){
         let formatTime = this.props.item.time
-        console.log(formatTime)
-
         let hours = Math.floor(formatTime / 3600)
         let mins = Math.floor(formatTime / 60)
         let secs = Math.floor(formatTime - mins * 60)
@@ -29,7 +28,7 @@ class EachItem extends React.Component{
     render(){
         return(
             <div>
-                <h3>Item {this.props.number} </h3>
+                <h3>Item</h3>
                 <p>
                     Time spent:
                     {this.state.hours>0 ? ` ${this.state.hours} hours` : null} 
@@ -46,28 +45,33 @@ class TimesList extends React.Component{
         super()
         this.state = {
             times: [],
-            itemNumber: 1
         }
     }
     componentDidMount(){
+        this.getData();
+    }
+
+    getData(){
         axios.get('https://timer-chrome-extension.herokuapp.com/timer')
             .then(res => {
                 this.setState({
                     times: res.data
                 })
+                console.log(this.state.times)
             })
             .catch(err => console.log(err))
     }
 
     timesList(){
         return this.state.times.map(currentItem => {
-            return <EachItem number={this.state.itemNumber++} item={currentItem} key={currentItem._id} />
+            return <EachItem item={currentItem} key={currentItem._id} />
         })
     }
 
     render(){
         return(
-            <div>
+            <div className="parentContainer">
+                <div className="refreshIcon"><ArrowRepeat  onClick={() => this.getData()} size={25} /></div>
                 {this.timesList()}
             </div>
         )
