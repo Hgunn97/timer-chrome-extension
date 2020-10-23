@@ -13,3 +13,13 @@
     cursor: pointer;
     color: black;
 }
+.Toastify__close-button--default{
+    display: none;
+}
+.Toastify__toast {
+    background-color: limegreen;
+    color: white;
+    text-align: center;
+    width: 85%;
+    height: 1.8rem
+}

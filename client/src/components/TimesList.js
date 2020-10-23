@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import {ArrowRepeat} from 'react-bootstrap-icons'
-import Toast from 'react-bootstrap/Toast'
 import './TimesList.css'
+import { ToastContainer, toast } from 'react-toastify';
 
 class EachItem extends React.Component{
     constructor(props){
@@ -56,7 +56,7 @@ class TimesList extends React.Component{
         axios.get('https://timer-chrome-extension.herokuapp.com/timer')
             .then(res => {
                 this.setState({
-                    times: res.data
+                    times: res.data,
                 })
                 console.log(this.state.times)
             })
@@ -69,13 +69,32 @@ class TimesList extends React.Component{
         })
     }
     render(){
+        const displayMsg = () => {
+            toast(<Msg />, {
+                position: "top-left",
+                autoClose: 1000,
+                closeOnClick: true,
+                draggable: true,
+                });
+        }
         return(
             <div className="parentContainer">
-                <div className="refreshIcon"><ArrowRepeat  onClick={() => this.getData()} size={25} /></div>
+                <ToastContainer position="top-right"
+                    autoClose={1000}
+                    closeOnClick
+                    pauseOnFocusLoss={false}
+                    draggable={false}/>
+                <div className="refreshIcon"><ArrowRepeat onClick={() => this.getData(), displayMsg} size={25} /></div>
                 {this.timesList()}
             </div>
         )
     }
 }
+
+const Msg = () => (
+    <div className="Toastify__toast--success">
+        Data successfully updated!
+    </div>
+)
 
 export default TimesList
