@@ -46,7 +46,7 @@ class SubmitForm extends React.Component{
     render(){
         return(
             <div>
-                <p>{this.props.time===0 ? <i>Please stop the timer before submitting</i> : null}</p>
+                {this.props.time===0 ? <p><i>Please stop the timer before submitting</i></p> : null}
                 <Form onSubmit={this.onSubmit}>
                     <Form.Group>
                         <Form.Label>Title</Form.Label>
@@ -56,7 +56,7 @@ class SubmitForm extends React.Component{
                         <Form.Label>Description</Form.Label>
                         <Form.Control as="textarea" rows={2} onChange={this.onChangeDescription} />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="success" type="submit">
                         Submit
                     </Button>
                 </Form>

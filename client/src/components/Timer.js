@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Timer.css'
 const ms = require('pretty-ms')
 
 class Timer extends React.Component{
@@ -35,11 +36,11 @@ class Timer extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="timerDiv">
                 <h3>Timer: {ms(this.state.time, {colonNotation: true, keepDecimalsOnWholeSeconds: true, compact: true})}</h3>
-                <Button variant="success" onClick={this.startTimer}>start</Button>
-                <Button variant="warning" onClick={this.stopTimer}>stop</Button>
-                <Button variant="danger" onClick={this.resetTimer}>reset</Button>
+                <Button className="timerBtn" variant="success" onClick={this.startTimer}>start</Button>
+                <Button className="timerBtn" variant="warning" onClick={this.stopTimer}>stop</Button>
+                <Button className="timerBtn" variant="danger" onClick={this.resetTimer}>reset</Button>
             </div>
         )
     }

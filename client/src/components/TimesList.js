@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {ArrowRepeat} from 'react-bootstrap-icons'
+import Toast from 'react-bootstrap/Toast'
 import './TimesList.css'
 
 class EachItem extends React.Component{
@@ -28,15 +29,15 @@ class EachItem extends React.Component{
     render(){
         return(
             <div>
-                <h3>Item</h3>
+                <h4>Item</h4>
+                <p>Title: {this.props.item.title}</p>
+                <p>Description: {this.props.item.description}</p>
                 <p>
                     Time spent:
                     {this.state.hours>0 ? ` ${this.state.hours} hours` : null} 
                     {this.state.minutes>0 ? ` ${this.state.minutes} minutes` : null}
                     {this.state.seconds>0 ? ` ${this.state.seconds} seconds` : null}
                 </p>
-                <p>Title: {this.props.item.title}</p>
-                <p>Description: {this.props.item.description}</p>
             </div>
 )}}
 
@@ -67,7 +68,6 @@ class TimesList extends React.Component{
             return <EachItem item={currentItem} key={currentItem._id} />
         })
     }
-
     render(){
         return(
             <div className="parentContainer">
