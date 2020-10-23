@@ -83,7 +83,8 @@ class TimesList extends React.Component{
                     autoClose={1000}
                     closeOnClick
                     pauseOnFocusLoss={false}
-                    draggable={false}/>
+                    draggable={false}
+                    limit={1}/>
                 <div className="refreshIcon"><ArrowRepeat onClick={() => this.getData(), displayMsg} size={25} /></div>
                 {this.timesList()}
             </div>
