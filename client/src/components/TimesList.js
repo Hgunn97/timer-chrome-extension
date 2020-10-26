@@ -59,8 +59,17 @@ class TimesList extends React.Component{
                     times: res.data,
                 })
                 console.log(this.state.times)
+                this.displayMsg()
             })
             .catch(err => console.log(err))
+    }
+    displayMsg = () => {
+        toast(<Msg />, {
+            position: "top-left",
+            autoClose: 1000,
+            closeOnClick: true,
+            draggable: true,
+            });
     }
 
     timesList(){
@@ -69,14 +78,6 @@ class TimesList extends React.Component{
         })
     }
     render(){
-        const displayMsg = () => {
-            toast(<Msg />, {
-                position: "top-left",
-                autoClose: 1000,
-                closeOnClick: true,
-                draggable: true,
-                });
-        }
         return(
             <div className="parentContainer">
                 <ToastContainer position="top-right"
@@ -85,7 +86,7 @@ class TimesList extends React.Component{
                     pauseOnFocusLoss={false}
                     draggable={false}
                     limit={1}/>
-                <div className="refreshIcon"><ArrowRepeat onClick={() => this.getData(), displayMsg} size={25} /></div>
+                <div className="refreshIcon"><ArrowRepeat onClick={() => this.getData()} size={25} /></div>
                 {this.timesList()}
             </div>
         )
